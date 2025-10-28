@@ -51,10 +51,15 @@ import {
   Dumbbell,
   Network,
   UserCheck,
-  PanelLeft
+  PanelLeft,
+  Menu
 } from "lucide-react"
 import { JusticeCoolLogo } from "@/components/ui/justice-cool-logo"
 import { JusticeCoolText } from "@/components/ui/justice-cool-text"
+import { JusticeCoolCompleteLogo } from "@/components/ui/justice-cool-complete-logo"
+import { Feature290 } from "@/components/sections/ai-chatbot-section"
+import { Logos1 } from "@/components/sections/logos-section"
+import { useIsMobile } from "@/components/hooks/use-mobile"
 
 // Données du menu principal
 const menuItems = [
@@ -356,19 +361,40 @@ const AppSidebar = () => {
   )
 }
 
+// Composant header mobile utilisant SidebarTrigger natif
+const MobileHeader = () => {
+  const { toggleSidebar } = useSidebar()
+  
+  return (
+    <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4 md:hidden">
+      <Button 
+        variant="ghost" 
+        size="icon"
+        className="h-8 w-8 -ml-1"
+        onClick={toggleSidebar}
+      >
+        <Menu className="h-4 w-4" />
+      </Button>
+      <div className="flex items-center gap-2">
+        <JusticeCoolCompleteLogo className="h-8 w-auto" />
+      </div>
+    </header>
+  )
+}
+
 // Composant principal de l'application
 export default function App() {
   return (
     <SidebarProvider defaultOpen={true}>
       <AppSidebar />
       <SidebarInset>
-        <div className="flex flex-1 flex-col gap-4 p-4">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-          </div>
-          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+        {/* Header mobile qui apparaît seulement sur mobile */}
+        <MobileHeader />
+        
+        {/* Contenu principal */}
+        <div className="flex flex-1 flex-col">
+          <Feature290 />
+          <Logos1 />
         </div>
       </SidebarInset>
     </SidebarProvider>
