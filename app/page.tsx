@@ -50,9 +50,11 @@ import {
   Library,
   Dumbbell,
   Network,
-  UserCheck
+  UserCheck,
+  PanelLeft
 } from "lucide-react"
 import { JusticeCoolLogo } from "@/components/ui/justice-cool-logo"
+import { JusticeCoolText } from "@/components/ui/justice-cool-text"
 
 // Données du menu principal
 const menuItems = [
@@ -147,21 +149,45 @@ const userMenuItems = [
 
 // Composant principal de la sidebar
 const AppSidebar = () => {
-  const { state } = useSidebar()
+  const { state, toggleSidebar } = useSidebar()
   const isCollapsed = state === "collapsed"
   
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader>
-        <div className="flex items-center gap-2 px-2 py-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-primary-foreground">
-            <JusticeCoolLogo className="h-5 w-5" />
+        <div className="flex items-center gap-2 px-2 py-2 group-data-[collapsible=icon]:justify-center">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-primary-foreground relative group">
+            <JusticeCoolLogo className="h-8 w-8" />
+            {/* Bouton expand au hover en mode collapsed */}
+            {isCollapsed && (
+              <div className="absolute inset-0 flex items-center justify-center bg-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <Button 
+                  variant="ghost" 
+                  size="icon"
+                  className="h-6 w-6 p-0 hover:bg-gray-100 rounded"
+                  onClick={toggleSidebar}
+                >
+                  <PanelLeft className="h-4 w-4" />
+                </Button>
+              </div>
+            )}
           </div>
           {!isCollapsed && (
-            <div className="flex flex-col">
-              <span className="text-sm font-semibold">Justice.cool</span>
-              <span className="text-xs text-muted-foreground">Site Grand Public</span>
-            </div>
+            <>
+              <div className="flex flex-col items-start">
+                <JusticeCoolText className="h-3 w-auto" />
+                <span className="text-xs text-muted-foreground">Site Grand Public</span>
+              </div>
+              {/* Bouton collapse visible en mode étendu */}
+              <Button 
+                variant="ghost" 
+                size="icon"
+                className="ml-auto h-6 w-6 p-0 hover:bg-gray-100 rounded"
+                onClick={toggleSidebar}
+              >
+                <PanelLeft className="h-4 w-4" />
+              </Button>
+            </>
           )}
         </div>
       </SidebarHeader>
@@ -336,12 +362,6 @@ export default function App() {
     <SidebarProvider defaultOpen={true}>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-          <SidebarTrigger className="-ml-1" />
-          <div className="flex items-center gap-2">
-            <h1 className="text-lg font-semibold">Justice.cool - Site Grand Public</h1>
-          </div>
-        </header>
         <div className="flex flex-1 flex-col gap-4 p-4">
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
             <div className="aspect-video rounded-xl bg-muted/50" />
