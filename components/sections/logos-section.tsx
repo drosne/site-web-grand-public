@@ -1,3 +1,5 @@
+import { Section } from "@/components/ui/section";
+
 const Logos1 = () => {
   const partners = [
     {
@@ -23,8 +25,8 @@ const Logos1 = () => {
   ];
 
   return (
-    <section className="flex items-center justify-center py-16 bg-white">
-      <div className="w-full max-w-4xl flex flex-wrap items-center justify-between gap-12 px-4">
+    <Section backgroundColor="white" padding="lg" containerSize="lg">
+      <div className="w-full max-w-4xl flex flex-wrap items-center justify-between gap-12">
       <p className="text-primary text-lg leading-[140%] tracking-[-0.32px]">
         Mentionné dans les médias
       </p>
@@ -41,7 +43,7 @@ const Logos1 = () => {
         ))}
       </div>
       </div>
-    </section>
+    </Section>
   );
 };
 

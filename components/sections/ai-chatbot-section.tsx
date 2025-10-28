@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import React from "react";
 
 import { cn } from "@/lib/utils";
+import { Section } from "@/components/ui/section";
 
 const Feature290 = () => {
   const [value, setValue] = useState("");
@@ -18,8 +19,8 @@ const Feature290 = () => {
   };
 
   return (
-    <section className="flex items-center justify-center py-16 bg-white">
-      <div className="w-full max-w-2xl flex flex-col gap-6 items-start px-4">
+    <Section backgroundColor="white" padding="lg" containerSize="lg">
+      <div className="w-full max-w-2xl flex flex-col gap-6 items-start">
           <h1 className="max-w-lg text-4xl font-semibold tracking-tighter">
             Comment puis-je vous aider ?
           </h1>
@@ -70,7 +71,7 @@ const Feature290 = () => {
             ))}
           </div>
       </div>
-    </section>
+    </Section>
   );
 };
 
