@@ -1,0 +1,55 @@
+import React from "react"
+
+interface JusticeCoolLogoProps {
+  className?: string
+}
+
+export const JusticeCoolLogo: React.FC<JusticeCoolLogoProps> = ({ className = "h-4 w-4" }) => {
+  return (
+    <svg 
+      id="Groupe_363" 
+      data-name="Groupe 363" 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="46.839" 
+      height="46.838" 
+      viewBox="0 0 46.839 46.838"
+      className={className}
+    >
+      <path 
+        id="Tracé_766" 
+        data-name="Tracé 766" 
+        d="M30.807,11.5a23.419,23.419,0,1,0,23.42,23.419A23.445,23.445,0,0,0,30.807,11.5ZM50.923,34.916A20.116,20.116,0,1,1,30.807,14.8,20.139,20.139,0,0,1,50.923,34.916Z" 
+        transform="translate(-7.388 -11.497)" 
+        fill="#f4d037"
+      />
+      <path 
+        id="Tracé_767" 
+        data-name="Tracé 767" 
+        d="M50.839,35.506V53.041a6.269,6.269,0,0,1-2.765,5.2l-.3.2,1.892,2.8.3-.2a9.645,9.645,0,0,0,4.252-8V35.506Z" 
+        transform="translate(-29.11 -24.411)" 
+        fill="#0080ff"
+      />
+      <path 
+        id="Tracé_768" 
+        data-name="Tracé 768" 
+        d="M35.065,47.733l-3.17-.019-.1.2a3.172,3.172,0,0,1-2.727,1.89,3.171,3.171,0,0,1-2.727-1.89l-.1-.2H22.69l.115.49a6.781,6.781,0,0,0,6.262,4.977A6.779,6.779,0,0,0,35.329,48.2l.2-.49Z" 
+        transform="translate(-15.618 -30.978)" 
+        fill="#ff4d40"
+      />
+      <path 
+        id="Tracé_769" 
+        data-name="Tracé 769" 
+        d="M78.172,47.733l-3.167-.019-.1.2a2.912,2.912,0,0,1-5.454,0l-.1-.2H65.76l.156.49a6.428,6.428,0,0,0,12.524,0l.106-.47Z" 
+        transform="translate(-38.785 -30.978)" 
+        fill="#00e5b4"
+      />
+      <path 
+        id="Tracé_770" 
+        data-name="Tracé 770" 
+        d="M30.806,82.291h0A20.138,20.138,0,0,1,10.691,62.175h-3.3a23.346,23.346,0,0,0,6.867,16.552c.3.3.611.591.927.874.365.327.741.64,1.126.945a23.3,23.3,0,0,0,14.5,5.048Z" 
+        transform="translate(-7.387 -38.756)" 
+        fill="#0080ff"
+      />
+    </svg>
+  )
+}
